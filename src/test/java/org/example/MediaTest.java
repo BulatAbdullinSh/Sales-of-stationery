@@ -32,7 +32,7 @@ class MediaTest {
 
   @Test
   void shouldUploadBytes() throws Exception {
-    final byte[] content = TestUtils.bytesFromResources("media.png");
+    final byte[] content = TestUtils.bytesFromResources("media.jpg");
 
     mockMvc.perform(
             MockMvcRequestBuilders.post("/media/bytes")
