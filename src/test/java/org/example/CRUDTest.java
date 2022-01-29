@@ -112,7 +112,7 @@ class CRUDTest {
         );
 
     mockMvc.perform(
-            MockMvcRequestBuilders.get("/products/getById/{id}", 2)
+            MockMvcRequestBuilders.get("/products/getById/{id}", 1)
         )
         .andExpectAll(
             MockMvcResultMatchers.status().isOk(),
