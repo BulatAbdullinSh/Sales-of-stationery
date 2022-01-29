@@ -1,0 +1,99 @@
+###
+
+POST http://localhost:8080/media/bytes
+Content-Type: image/jpeg
+
+< media.jpg
+
+> {%
+client.global.set('mediaName', response.body.name);
+%}
+
+###
+
+POST http://localhost:8080/media/multipart
+Content-Type: multipart/form-data; boundary=WebBoundary
+
+--WebBoundary
+Content-Disposition: form-data; name="file"; filename="media.jpg"
+Content-Type: image/jpeg
+
+< media.jpg
+--WebBoundary--
+
+###
+
+POST http://localhost:8080/media/multi-multipart
+Content-Type: multipart/form-data; boundary=WebBoundary
+
+--WebBoundary
+Content-Disposition: form-data; name="files"; filename="media.jpg"
+Content-Type: image/jpeg
+
+< media.jpg
+--WebBoundary
+Content-Disposition: form-data; name="files"; filename="music.mp3"
+Content-Type: audio/mpeg
+
+< music.mp3
+--WebBoundary--
+
+### REST
+
+GET http://localhost:8080/products/getAll
+
+###
+
+GET http://localhost:8080/products/getById?id=1
+
+###
+
+GET http://localhost:8080/products/getById/1
+
+###
+
+GET http://localhost:8080/products/getById?id=999
+
+### Create Product without image
+
+POST http://localhost:8080/products/save
+Content-Type: application/json
+
+{
+  "id": 0,
+  "name": "блокнот",
+  "price": 105,
+  "qty": 10
+}
+
+###
+
+POST http://localhost:8080/products/save
+Content-Type: application/json
+
+{
+  "id": 0,
+  "name": "блокнот",
+  "price": 105,
+  "qty": 10,
+  "image": "{{mediaName}}"
+}
+
+###
+
+POST http://localhost:8080/products/removeById?id=1
+
+###
+
+POST http://localhost:8080/products/removeById/2
+
+###
+
+POST http://localhost:8080/sales/register
+Content-Type: application/json
+
+{
+  "productId": 3,
+  "price": 30,
+  "qty": 3
+}
