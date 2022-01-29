@@ -37,9 +37,9 @@ class SaleTest {
                     // language=JSON
                     """
                         {
-                          "productId": 1,
-                          "price": 300,
-                          "qty": 2
+                          "productId": 3,
+                          "price": 30,
+                          "qty": 3
                         }
                         """
                 )
@@ -50,13 +50,13 @@ class SaleTest {
                 // language=JSON
                 """
                     {
-                      "sale": {
-                        "id": 1,
-                        "productId": 1,
-                        "name": "Биг Мак",
-                        "price": 300,
-                        "qty": 2
-                      }
+                       "sale": {
+                           "id": 1,
+                           "productId": 3,
+                           "name": "карандаш",
+                           "price": 30,
+                           "qty": 3
+                         }
                     }
                     """
             )
@@ -64,7 +64,7 @@ class SaleTest {
 
     mockMvc.perform(
             MockMvcRequestBuilders.get("/products/getById")
-                .queryParam("id", String.valueOf(1))
+                .queryParam("id", String.valueOf(3))
         )
         .andExpectAll(
             MockMvcResultMatchers.status().isOk(),
@@ -73,10 +73,10 @@ class SaleTest {
                 """
                     {
                       "product": {
-                        "id": 1,
-                        "name": "Биг Мак",
-                        "price": 300,
-                        "qty": 8,
+                        "id": 3,
+                        "name": "карандаш",
+                        "price": 30,
+                        "qty": 117,
                         "image": "noimage.png"
                       }
                     }

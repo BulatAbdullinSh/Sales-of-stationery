@@ -40,58 +40,58 @@ class CRUDTest {
                 // language=JSON
                 """
                     {
-                      "products": [
-                        {
-                          "id": 1,
-                          "name": "Биг Мак",
-                          "price": 300,
-                          "qty": 10,
-                          "image": "noimage.png"
-                        },
-                        {
-                          "id": 2,
-                          "name": "greeck mac",
-                          "price": 200,
-                          "qty": 10,
-                          "image": "noimage.png"
-                        },
-                        {
-                          "id": 3,
-                          "name": "burger",
-                          "price": 150,
-                          "qty": 10,
-                          "image": "noimage.png"
-                        },
-                        {
-                          "id": 4,
-                          "name": "coffee",
-                          "price": 150,
-                          "qty": 10,
-                          "image": "noimage.png"
-                        },
-                        {
-                          "id": 5,
-                          "name": "tea",
-                          "price": 50,
-                          "qty": 5,
-                          "image": "noimage.png"
-                        },
-                        {
-                          "id": 6,
-                          "name": "water",
-                          "price": 50,
-                          "qty": 0,
-                          "image": "noimage.png"
-                        }
-                      ]
-                    }
+                        "products": [
+                          {
+                            "id": 1,
+                            "name": "тетрадь",
+                            "price": 50,
+                            "qty": 100,
+                            "image": "noimage.png"
+                          },
+                          {
+                            "id": 2,
+                            "name": "ручка",
+                            "price": 35,
+                            "qty": 200,
+                            "image": "noimage.png"
+                          },
+                          {
+                            "id": 3,
+                            "name": "карандаш",
+                            "price": 30,
+                            "qty": 120,
+                            "image": "noimage.png"
+                          },
+                          {
+                            "id": 4,
+                            "name": "линейка",
+                            "price": 45,
+                            "qty": 200,
+                            "image": "noimage.png"
+                          },
+                          {
+                            "id": 5,
+                            "name": "пенал",
+                            "price": 120,
+                            "qty": 110,
+                            "image": "noimage.png"
+                          },
+                          {
+                            "id": 6,
+                            "name": "кисточка",
+                            "price": 45,
+                            "qty": 67,
+                            "image": "noimage.png"
+                          }
+                        ]
+                      }
                     """
             )
         );
 
     mockMvc.perform(
             MockMvcRequestBuilders.get("/products/getById")
-                .queryParam("id", String.valueOf(2))
+                .queryParam("id", String.valueOf(1))
         )
         .andExpectAll(
             MockMvcResultMatchers.status().isOk(),
@@ -99,13 +99,13 @@ class CRUDTest {
                 // language=JSON
                 """
                     {
-                      "product": {
-                        "id": 2,
-                        "name": "greeck mac",
-                        "price": 200,
-                        "qty": 10,
-                        "image": "noimage.png"
-                      }
+                        "product": {
+                              "id": 1,
+                              "name": "тетрадь",
+                              "price": 50,
+                              "qty": 100,
+                              "image": "noimage.png"
+                            }
                     }
                     """
             )
@@ -120,13 +120,13 @@ class CRUDTest {
                 // language=JSON
                 """
                     {
-                      "product": {
-                        "id": 2,
-                        "name": "greeck mac",
-                        "price": 200,
-                        "qty": 10,
-                        "image": "noimage.png"
-                      }
+                        "product": {
+                          "id": 1,
+                          "name": "тетрадь",
+                          "price": 50,
+                          "qty": 100,
+                          "image": "noimage.png"
+                        }
                     }
                     """
             )
@@ -147,11 +147,11 @@ class CRUDTest {
                     // language=JSON
                     """
                         {
-                          "id": 0,
-                          "name": "Java Book",
-                          "price": 1000,
-                          "qty": 10
-                        }
+                           "id": 0,
+                           "name": "блокнот",
+                           "price": 105,
+                           "qty": 10
+                         }
                         """
                 )
         )
@@ -162,12 +162,12 @@ class CRUDTest {
                 """
                 {
                   "product": {
-                    "id": 7,
-                    "name": "Java Book",
-                    "price": 1000,
-                    "qty": 10,
-                    "image": "noimage.png"
-                  }
+                     "id": 7,
+                     "name": "блокнот",
+                     "price": 105,
+                     "qty": 10,
+                     "image": "noimage.png"
+                   }
                 }
                 """
             )
